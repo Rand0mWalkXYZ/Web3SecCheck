@@ -88,9 +88,9 @@
 
     <div id="onekey">
         <script type="text/javascript">
-            function checkOnekeyGooglePlay() {
-                onekeygoogleplay = document.getElementById('onekeygoogleplay').value;
-                if (onekeygoogleplay == "https://play.google.com/store/apps/details?id=com.bixin.wallet.mainnet") {
+            function checkOnekeyiOS() {
+                onekeyiso = document.getElementById('onekeyios').value;
+                if (onekeyiso == "https://apps.apple.com/us/app/onekey-wallet/id1568432215") {
                     alert("恭喜你，答对了！");
                 }
                 else {
@@ -98,10 +98,10 @@
                 }
             }
         </script>
-        <p>2、Onekey安卓版钱包的Google Play下载安装地址为：</p>
-        <form id="OnekeyGooglePlay">
-            <input type="text" id="onekeygoogleplay" value="">&nbsp&nbsp&nbsp&nbsp
-            <input type="button" onclick="checkOnekeyGooglePlay()" value="确认"><br /><br />
+        <p>2、Onekey苹果手机应用安装地址为：</p>
+        <form id="OnekeyiOSForm">
+            <input type="text" id="onekeyios" value="">&nbsp&nbsp&nbsp&nbsp
+            <input type="button" onclick="checkOnekeyiOS()" value="确认"><br /><br />
         </form>
     </div>
     
@@ -117,7 +117,7 @@
                 }
             }
         </script>
-        <p>3、你在使用电脑购买Ledger Nano X硬件钱包，页面地址是：</p>
+        <p>3、你在购买Ledger Nano X硬件钱包，页面地址是：</p>
         <form id="ledgernanoxform">
             <input type="text" id="ledgernanox" value="">&nbsp&nbsp&nbsp&nbsp
             <input type="button" onclick="checkledgernanox()" value="确认"><br /><br />
