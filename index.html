@@ -19,13 +19,13 @@
             for (i = 0; i < hotWallet.length; ++i) {
                 if (hotWallet[i].checked){
                     // 显示相关的下一道题并推出for循环
-                    alert(hotWallet[i].value);
-                    break;
-                }
-                else{
-                    if (i == hotWallet.length - 1){
-                        alert("请答题。");
-                    }
+                    document.getElementById(hotWallet[i].value).hidden = false
+                    // break;
+                }else{
+                    document.getElementById(hotWallet[i].value).hidden = true
+                    // if (i == hotWallet.length - 1){
+                    //     alert("请答题。");
+                    // }
                 }
             }
         }
@@ -49,7 +49,7 @@
 </head>
 
 <body>
-    <div>
+    <!-- <div>
         <p>你会选择哪种类型的钱包来畅游Web 3？</p>
         <form id="WalletTypeForm">
             <input type="checkbox" name="WalletType" value="HotWallet">热钱包
@@ -65,19 +65,64 @@
             <input type="radio" name="HotWallet" value="onekey">OneKey&nbsp&nbsp&nbsp&nbsp
             <input type="button" onclick="chooseHotWallet()" value="确认"><br /><br />
         </form>
-    </div>  
+    </div>   -->
 
-    <div id="HardwareWallet" hidden>
-        <p>你会选择哪个硬件钱包来使用？</p>
-        <form id="HardwareWalletForm">
-            <input type="radio" name="HardwareWallet" value="onekey mini">OneKey Mini
-            <input type="radio" name="HardwareWallet" value="nano s">ledger nano s&nbsp&nbsp&nbsp&nbsp
-            <input type="radio" name="HardwareWallet" value="nano x">ledger nano x&nbsp&nbsp&nbsp&nbsp
-            <input type="button" onclick="chooseHardwareWallet()" value="确认"><br /><br />
+    <div id="metamask">
+        <script type="text/javascript">
+            function checkMetamaskChromeurl() {
+                chromeurl = document.getElementById('metamaskchromeurl').value;
+                if (chromeurl == "https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn") {
+                    alert("恭喜你，答对了！");
+                }
+                else {
+                    alert("答错了，请重新输入。");
+                }
+            }
+        </script>
+        <p>1、Metamask钱包的谷歌浏览器插件下载安装地址为：</p>
+        <form id="MetamaskPluginForm">
+            <input type="text" id="metamaskchromeurl" value="">&nbsp&nbsp&nbsp&nbsp
+            <input type="button" onclick="checkMetamaskChromeurl()" value="确认"><br /><br />
         </form>
-    </div>  
+    </div>
 
+    <div id="onekey">
+        <script type="text/javascript">
+            function checkOnekeyGooglePlay() {
+                onekeygoogleplay = document.getElementById('onekeygoogleplay').value;
+                if (onekeygoogleplay == "https://play.google.com/store/apps/details?id=com.bixin.wallet.mainnet") {
+                    alert("恭喜你，答对了！");
+                }
+                else {
+                    alert("答错了，请重新输入。");
+                }
+            }
+        </script>
+        <p>2、Onekey安卓版钱包的Google Play下载安装地址为：</p>
+        <form id="OnekeyGooglePlay">
+            <input type="text" id="onekeygoogleplay" value="">&nbsp&nbsp&nbsp&nbsp
+            <input type="button" onclick="checkOnekeyGooglePlay()" value="确认"><br /><br />
+        </form>
+    </div>
     
+    <div id="ledger-nano-x">
+        <script type="text/javascript">
+            function checkledgernanox() {
+                ledgernanox = document.getElementById('ledgernanox').value.substring(0, 23);
+                if (ledgernanox == "https://shop.ledger.com") {
+                    alert("恭喜你，答对了！");
+                }
+                else {
+                    alert("答错了，请重新输入。");
+                }
+            }
+        </script>
+        <p>3、你在使用电脑购买Ledger Nano X硬件钱包，页面地址是：</p>
+        <form id="ledgernanoxform">
+            <input type="text" id="ledgernanox" value="">&nbsp&nbsp&nbsp&nbsp
+            <input type="button" onclick="checkledgernanox()" value="确认"><br /><br />
+        </form>
+    </div>
 
 </body>
 
