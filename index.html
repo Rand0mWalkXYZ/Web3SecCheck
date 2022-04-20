@@ -67,61 +67,153 @@
         </form>
     </div>   -->
 
-    <div id="metamask">
-        <script type="text/javascript">
-            function checkMetamaskChromeurl() {
-                chromeurl = document.getElementById('metamaskchromeurl').value;
-                if (chromeurl == "https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn") {
-                    alert("恭喜你，答对了！");
-                }
-                else {
-                    alert("答错了，请重新输入。");
-                }
-            }
-        </script>
-        <p>1、Metamask钱包的谷歌浏览器插件下载安装地址为：</p>
-        <form id="MetamaskPluginForm">
-            <input type="text" id="metamaskchromeurl" value="">&nbsp&nbsp&nbsp&nbsp
-            <input type="button" onclick="checkMetamaskChromeurl()" value="确认"><br /><br />
-        </form>
-    </div>
+    <div>
+        <form>
 
-    <div id="onekey">
-        <script type="text/javascript">
-            function checkOnekeyiOS() {
-                onekeyiso = document.getElementById('onekeyios').value;
-                if (onekeyiso == "https://apps.apple.com/us/app/onekey-wallet/id1568432215") {
-                    alert("恭喜你，答对了！");
-                }
-                else {
-                    alert("答错了，请重新输入。");
-                }
-            }
-        </script>
-        <p>2、Onekey苹果手机应用安装地址为：</p>
-        <form id="OnekeyiOSForm">
-            <input type="text" id="onekeyios" value="">&nbsp&nbsp&nbsp&nbsp
-            <input type="button" onclick="checkOnekeyiOS()" value="确认"><br /><br />
+            <div>
+                <strong>谨慎点击确定按钮，确定后无法修改！</strong><br><br><br><br>
+            </div>
+
+            <div id="metamask">
+                <script type="text/javascript">
+                    function checkMetamaskChromeurl() {
+                        chromeurl = document.getElementById('metamaskchromeurl').value;
+                        if (chromeurl ==
+                            "https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn") {
+                            // alert("恭喜你，答对了！");
+                            document.getElementById('metamaskAnswer').innerText = "Y";
+                        }
+
+                        document.getElementById('metamaskchromeurl').disabled = true;
+                        document.getElementById('checkMetamaskChromeurlBtn').disabled = true;
+                    }
+                </script>
+                <p>1、Metamask钱包的谷歌浏览器插件下载安装地址为：</p>
+                <form id="MetamaskPluginForm">
+                    <input type="text" id="metamaskchromeurl" value="">&nbsp&nbsp&nbsp&nbsp
+                    <label id="metamaskAnswer" hidden>N</label>
+                    <input id="checkMetamaskChromeurlBtn" type="button" onclick="checkMetamaskChromeurl()"
+                        value="确认"><br /><br />
+                </form>
+            </div>
+
+            <div id="onekey">
+                <script type="text/javascript">
+                    function checkOnekeyiOS() {
+                        onekeyiso = document.getElementById('onekeyios').value;
+                        if (onekeyiso == "https://apps.apple.com/us/app/onekey-wallet/id1568432215") {
+                            document.getElementById('onekeyAnswer').innerText = "Y";
+                        }
+
+                        document.getElementById('onekeyios').disabled = true;
+                        document.getElementById('checkOnekeyiOSBtn').disabled = true;
+                    }
+                </script>
+                <p>2、Onekey苹果手机应用安装地址为：</p>
+                <form id="OnekeyiOSForm">
+                    <input type="text" id="onekeyios" value="">&nbsp&nbsp&nbsp&nbsp
+                    <label id="onekeyAnswer" hidden>N</label>
+                    <input type="button" id="checkOnekeyiOSBtn" onclick="checkOnekeyiOS()" value="确认"><br /><br />
+                </form>
+            </div>
+
+            <div id="ledger-nano-x">
+                <script type="text/javascript">
+                    function checkledgernanox() {
+                        ledgernanox = document.getElementById('ledgernanox').value.substring(0, 23);
+                        if (ledgernanox == "https://shop.ledger.com") {
+                            document.getElementById('ledgernanoxAnswer').innerText = "Y";
+                        }
+
+                        document.getElementById('ledgernanox').disabled = true;
+                        document.getElementById('checkledgernanoxBtn').disabled = true;
+                    }
+                </script>
+                <p>3、你在购买Ledger Nano X硬件钱包，页面地址是：</p>
+                <form id="ledgernanoxform">
+                    <input type="text" id="ledgernanox" value="">&nbsp&nbsp&nbsp&nbsp
+                    <label id="ledgernanoxAnswer" hidden>N</label>
+                    <input type="button" id="checkledgernanoxBtn" onclick="checkledgernanox()" value="确认"><br /><br />
+                </form>
+            </div>
+
+            <div id="Mnemonic Phrase">
+                <script type="text/javascript">
+                    function checkBackupMnemonic() {
+                        backup = document.getElementById('backupMnemonicForm').backupMnemonic;
+                        if (backup[0].checked || backup[3].checked) {
+                            document.getElementById('backupMnemonicAnswer').innerText = "Y";
+                        }
+
+                        for (i = 0; i < document.getElementsByName('backupMnemonic').length; ++i) {
+                            document.getElementsByName('backupMnemonic')[i].disabled = true;
+                        }
+                        document.getElementById('checkBackupMnemonicBtn').disabled = true;
+                    }
+                </script>
+                <p>4、你会选择哪种方式来备份助记词：</p>
+                <form id="backupMnemonicForm">
+                    <input type="radio" name="backupMnemonic" value="paper">纸张
+                    <input type="radio" name="backupMnemonic" value="Brain">大脑
+                    <input type="radio" name="backupMnemonic" value="Device">电脑里的强加密文件
+                    <input type="radio" name="backupMnemonic" value="steel">钢板&nbsp&nbsp&nbsp&nbsp
+                    <label id="backupMnemonicAnswer" hidden>N</label>
+                    <input type="button" id="checkBackupMnemonicBtn" onclick="checkBackupMnemonic()"
+                        value="确认"><br /><br />
+                </form>
+            </div>
+
+            <div id="Mnemonic Phrase">
+                <script type="text/javascript">
+                    function checkbackupMnemonicEncrypt() {
+                        encrypted = document.getElementById('backupMnemonicEncryptForm').backupMnemonicEncrypt;
+                        if (encrypted[2].checked) {
+                            document.getElementById('backupMnemonicEncryptAnswer').innerText = "Y";
+                        }
+
+                        for (i = 0; i < document.getElementsByName('backupMnemonicEncrypt').length; ++i) {
+                            document.getElementsByName('backupMnemonicEncrypt')[i].disabled = true;
+                        }
+                        document.getElementById('backupMnemonicEncryptBtn').disabled = true;
+                    }
+                </script>
+                <p>5、假如你有不得不触网保存助记词的理由，选择下边哪种方式加密：</p>
+                <form id="backupMnemonicEncryptForm">
+                    <input type="radio" name="backupMnemonicEncrypt" value="common">32位长度的随机数密码加密
+                    <input type="radio" name="backupMnemonicEncrypt" value="md5">md5加密
+                    <input type="radio" name="backupMnemonicEncrypt" value="gpg">gpg加密
+                    <input type="radio" name="backupMnemonicEncrypt" value="base64">base64&nbsp&nbsp&nbsp&nbsp
+                    <label id="backupMnemonicEncryptAnswer" hidden>N</label>
+                    <input type="button" id="backupMnemonicEncryptBtn" onclick="checkbackupMnemonicEncrypt()" value="确认"><br /><br />
+                </form>
+            </div>
+
+            <div>
+                <script>
+                    function checkAll() {
+                        wrongCount = 0;
+                        document.getElementsByTagName('label');
+                        for (i = 0; i < document.getElementsByTagName('label').length; ++i) {
+                            if (document.getElementsByTagName('label')[i].innerText == "N") {
+                                wrongCount++;
+                            }
+
+
+                        }
+
+                        if (wrongCount != 0) {
+                            alert("错题数：" + wrongCount + "个！继续学习后再回来答题吧！");
+                        } else {
+                            alert("恭喜你，全都答对了！");
+                        }
+
+                    }
+                </script>
+                <input type="button" id="submitAll" onclick="checkAll()" value="提交查看结果">
+            </div>
+
         </form>
-    </div>
-    
-    <div id="ledger-nano-x">
-        <script type="text/javascript">
-            function checkledgernanox() {
-                ledgernanox = document.getElementById('ledgernanox').value.substring(0, 23);
-                if (ledgernanox == "https://shop.ledger.com") {
-                    alert("恭喜你，答对了！");
-                }
-                else {
-                    alert("答错了，请重新输入。");
-                }
-            }
-        </script>
-        <p>3、你在购买Ledger Nano X硬件钱包，页面地址是：</p>
-        <form id="ledgernanoxform">
-            <input type="text" id="ledgernanox" value="">&nbsp&nbsp&nbsp&nbsp
-            <input type="button" onclick="checkledgernanox()" value="确认"><br /><br />
-        </form>
+
     </div>
 
 </body>
