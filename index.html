@@ -185,6 +185,59 @@
             </form>
         </div>
 
+        <div id="Good Friend">
+            <script type="text/javascript">
+                function checkGoodFriend() {
+                    friendName = document.getElementById('goodFriendName').value;
+                    if (friendName != "") {
+                        // 显示陷阱题
+                        document.getElementById('goodfriendhiddenquestionP').innerText = "隐藏题：" + friendName + "说TA有个NFT项目，捐赠者有机会获得白名单，你会直接给"+friendName+"捐赠吗？";
+                        document.getElementById('Good Friend Hidden Question').hidden = false;
+                    }else{
+                        alert("请输入名字!");
+                        return;
+                    }
+
+                    document.getElementById('goodFriendName').disabled = true;
+                    document.getElementById('checkGoodFriendBtn').disabled = true;
+                }
+            </script>
+            <p>6、你信任的、且在Web 3方面能给你指导的朋友或者大V是：</p>
+            <label id="goodfriend" hidden>Y</label>
+            <form id="goodFriendForm">
+                <input type="text" id="goodFriendName" value="">&nbsp&nbsp&nbsp&nbsp
+                <input type="button" id="checkGoodFriendBtn" onclick="checkGoodFriend()" value="确认"><br /><br />
+            </form>
+        </div>
+
+        <div id="Good Friend Hidden Question" hidden>
+            <script type="text/javascript">
+                function checkHiddenQuestion() {
+                    hiddenQuesAnswer = document.getElementById('goodFriendHiddenQuestionForm').gfhq;
+                    if (hiddenQuesAnswer[1].checked) {
+                        document.getElementById('goodfriendhiddenquestion').innerText = "Y";
+                    }
+
+                    hiddenQuesAnswer[0].disabled = true;
+                    hiddenQuesAnswer[1].disabled = true;
+                    document.getElementById('HiddenQuestionBtn').disabled = true;
+                }
+            </script>
+            <p id="goodfriendhiddenquestionP"></p>
+            <label id="goodfriendhiddenquestion" hidden>N</label>
+            <form id="goodFriendHiddenQuestionForm">
+                <input type="radio" name="gfhq" value="yes">Yes
+                <input type="radio" name="gfhq" value="no">No&nbsp&nbsp&nbsp&nbsp
+                <input type="button" id="HiddenQuestionBtn" onclick="checkHiddenQuestion()" value="确认"><br /><br />
+            </form>
+        </div>
+
+
+
+
+
+
+
 
 
         <div>
