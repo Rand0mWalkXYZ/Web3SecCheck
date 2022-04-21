@@ -192,7 +192,9 @@
                     if (friendName != "") {
                         // 显示陷阱题
                         document.getElementById('goodfriendhiddenquestionP').innerText = "隐藏题：" + friendName + "说TA有个NFT项目，捐赠者有机会获得白名单，并给你发了捐赠链接，你会直接给"+friendName+"捐赠吗？";
+                        document.getElementById('goodfriendhiddenquestion').innerText = "N";
                         document.getElementById('Good Friend Hidden Question').hidden = false;
+                        document.getElementById('goodfriend').innerText = "Y";
                     }else{
                         alert("请输入名字!");
                         return;
@@ -203,7 +205,7 @@
                 }
             </script>
             <p>6、你信任的、且在Web 3方面能给你指导的朋友或者大V是：</p>
-            <label id="goodfriend" hidden>Y</label>
+            <label id="goodfriend" hidden>N</label>
             <form id="goodFriendForm">
                 <input type="text" id="goodFriendName" value="">&nbsp&nbsp&nbsp&nbsp
                 <input type="button" id="checkGoodFriendBtn" onclick="checkGoodFriend()" value="确认"><br /><br />
@@ -224,13 +226,41 @@
                 }
             </script>
             <p id="goodfriendhiddenquestionP"></p>
-            <label id="goodfriendhiddenquestion" hidden>N</label>
+            <label id="goodfriendhiddenquestion" hidden>Y</label>
             <form id="goodFriendHiddenQuestionForm">
                 <input type="radio" name="gfhq" value="yes">Yes
                 <input type="radio" name="gfhq" value="no">No&nbsp&nbsp&nbsp&nbsp
                 <input type="button" id="HiddenQuestionBtn" onclick="checkHiddenQuestion()" value="确认"><br /><br />
             </form>
         </div>
+
+        <div id="Astroport">
+            <script type="text/javascript">
+                function checkAstroport() {
+                    astroport = document.getElementById('astroportForm').astroport;
+                    if (astroport[1].checked) {
+                        document.getElementById('astroportAnswer').innerText = "Y";
+                    }
+
+                    for(i=0; i < document.getElementById('astroportForm').astroport.length; ++i) {
+                        document.getElementById('astroportForm').astroport[i].disabled = true;
+                    }
+
+                    document.getElementById('checkAstroportBtn').disabled = true;
+                }
+            </script>
+            <p>7、你想使用Terra链的astroport交易所，去谷歌搜索出来的结果如下图，哪一个是官网的可能性更大？</p>
+            <label id="astroportAnswer" hidden>N</label>
+            <form id="astroportForm">
+                <input type="radio" name="astroport" value="1">第一个地址
+                <input type="radio" name="astroport" value="2">第二个地址
+                <input type="radio" name="astroport" value=4">两个都不是官网&nbsp&nbsp&nbsp&nbsp
+                <input type="button" id="checkAstroportBtn" onclick="checkAstroport()" value="确认"><br /><br />
+                <img src="./pics/astroport.png" height="400" width="700"><br /><br />
+            </form>
+        </div>
+
+
 
 
 
