@@ -261,6 +261,158 @@
             </form>
         </div>
 
+        <div id="amlDiv">
+            <script type="text/javascript">
+                function checkAml() {
+                    aml = document.getElementById('amlForm').aml;
+                    if (aml[0].checked) {
+                        document.getElementById('AMLAnswer').innerText = "Y";
+                    }
+
+                    for(i=0; i < document.getElementById('amlForm').aml.length; ++i) {
+                        document.getElementById('amlForm').aml[i].disabled = true;
+                    }
+
+                    document.getElementById('checkAmlBtn').disabled = true;
+                }
+            </script>
+            <p>8、如果您将涉及相关执法单位在处理案件的加密货币转移到中心化交易所，<br>
+                那么该平台有可能因为AML（Anti Money Laundering）-反洗钱风控等要求：
+            </p>
+            <label id="AMLAnswer" hidden>N</label>
+            <form id="amlForm">
+                <input type="radio" name="aml" value="1">冻结你的加密货币
+                <input type="radio" name="aml" value="2">正常操作交易，没有影响&nbsp&nbsp&nbsp&nbsp
+                <input type="button" id="checkAmlBtn" onclick="checkAml()" value="确认"><br /><br />
+            </form>
+        </div>
+
+        <div id="approveDiv">
+            <script type="text/javascript">
+                function checkApprove() {
+                    approve = document.getElementById('ApproveForm').approve;
+                    if (approve[2].checked) {
+                        document.getElementById('ApproveAnswer').innerText = "Y";
+                    }
+
+                    for(i=0; i < document.getElementById('ApproveForm').approve.length; ++i) {
+                        document.getElementById('ApproveForm').approve[i].disabled = true;
+                    }
+
+                    document.getElementById('checkApproveBtn').disabled = true;
+                }
+            </script>
+            <p>9、授权可能在以下哪个环节出现风险：</p>
+            <label id="ApproveAnswer" hidden>N</label>
+            <form id="ApproveForm">
+                <input type="radio" name="approve" value="1">授权未知的合约地址
+                <input type="radio" name="approve" value="2">授权给Uniswap无上限的代币数量
+                <input type="radio" name="approve" value="3">以上均可能&nbsp&nbsp&nbsp&nbsp
+                <input type="button" id="checkApproveBtn" onclick="checkApprove()" value="确认"><br /><br />
+            </form>
+        </div>
+
+        <div id="walletUpdateDiv">
+            <script type="text/javascript">
+                function checkWalletUpdate() {
+                    update = document.getElementById('WalletUpdateForm').walletupdate;
+                    if (update[1].checked) {
+                        document.getElementById('WalletUpdateAnswer').innerText = "Y";
+                    }
+
+                    for(i=0; i < document.getElementById('WalletUpdateForm').walletupdate.length; ++i) {
+                        document.getElementById('WalletUpdateForm').walletupdate[i].disabled = true;
+                    }
+
+                    document.getElementById('checkWalletUpdateBtn').disabled = true;
+                }
+            </script>
+            <p>10、你收到了钱包的新版本迭代通知，最稳妥的做法是：</p>
+            <label id="WalletUpdateAnswer" hidden>N</label>
+            <form id="WalletUpdateForm">
+                <input type="radio" name="walletupdate" value="1">立即更新
+                <input type="radio" name="walletupdate" value="2">不确定是否会被植入恶意代码或后门，暂不更新观察一段时间&nbsp&nbsp&nbsp&nbsp
+                <input type="button" id="checkWalletUpdateBtn" onclick="checkWalletUpdate()" value="确认"><br /><br />
+            </form>
+        </div>
+
+        <div id="projectEvilDiv">
+            <script type="text/javascript">
+                function checkProjectEvil() {
+                    evil = document.getElementById('ProjectEvilForm').projectevil;
+                    if (evil[2].checked) {
+                        document.getElementById('ProjectEvilAnswer').innerText = "Y";
+                    }
+
+                    for(i=0; i < document.getElementById('ProjectEvilForm').projectevil.length; ++i) {
+                        document.getElementById('ProjectEvilForm').projectevil[i].disabled = true;
+                    }
+
+                    document.getElementById('checkProjectEvilBtn').disabled = true;
+                }
+            </script>
+            <p>11、为防止项目方在智能合约上作恶，以下什么方式可以消弱项目方权限过大的风险：</p>
+            <label id="ProjectEvilAnswer" hidden>N</label>
+            <form id="ProjectEvilForm">
+                <input type="radio" name="projectevil" value="1">增加时间锁
+                <input type="radio" name="projectevil" value="2">设置多签管理
+                <input type="radio" name="projectevil" value="3">以上均可&nbsp&nbsp&nbsp&nbsp
+                <input type="button" id="checkProjectEvilBtn" onclick="checkProjectEvil()" value="确认"><br /><br />
+            </form>
+        </div>
+
+        <div id="httpsDiv">
+            <script type="text/javascript">
+                function checkHTTPS() {
+                    https = document.getElementById('HTTPSForm').https;
+                    if (https[1].checked) {
+                        document.getElementById('HTTPSAnswer').innerText = "Y";
+                    }
+
+                    for(i=0; i < document.getElementById('HTTPSForm').https.length; ++i) {
+                        document.getElementById('HTTPSForm').https[i].disabled = true;
+                    }
+
+                    document.getElementById('checkHTTPSBtn').disabled = true;
+                }
+            </script>
+            <p>12、当你访问目标网站时，目标页面出现HTTPS错误证书提醒，你应该：</p>
+            <label id="HTTPSAnswer" hidden>N</label>
+            <form id="HTTPSForm">
+                <input type="radio" name="https" value="1">忽略提醒继续访问，这可是个百倍币啊
+                <input type="radio" name="https" value="2">立即停止访问，关闭页面&nbsp&nbsp&nbsp&nbsp
+                <input type="button" id="checkHTTPSBtn" onclick="checkHTTPS()" value="确认"><br /><br />
+            </form>
+        </div>
+
+        <div id="evilLinkDiv">
+            <script type="text/javascript">
+                function checkEvilLink() {
+                    evillink = document.getElementById('EvilLinkForm').evillink;
+                    if (evillink[1].checked) {
+                        document.getElementById('EvilLinkAnswer').innerText = "Y";
+                    }
+
+                    for(i=0; i < document.getElementById('EvilLinkForm').evillink.length; ++i) {
+                        document.getElementById('EvilLinkForm').evillink[i].disabled = true;
+                    }
+
+                    document.getElementById('checkEvilLinkBtn').disabled = true;
+                }
+            </script>
+            <p>13、你收到了不知名网站空投的NFT，可通过链接进入然后获得，这时你会：</p>
+            <label id="EvilLinkAnswer" hidden>N</label>
+            <form id="EvilLinkForm">
+                <input type="radio" name="evillink" value="1">点击链接，连接钱包MINT
+                <input type="radio" name="evillink" value="2">不随意点击陌生链接，这会增加资产被盗风险&nbsp&nbsp&nbsp&nbsp
+                <input type="button" id="checkEvilLinkBtn" onclick="checkEvilLink()" value="确认"><br /><br />
+            </form>
+        </div>
+
+
+
+
+
 
 
 
